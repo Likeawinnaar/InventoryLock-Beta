@@ -1,0 +1,74 @@
+name: Build InventoryLock (private repository only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      java_version:
+        description: Java for the target Minecraft version
+        required: true
+        default: '21'
+        type: choice
+        options:
+          - '17'
+          - '21'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    # Intentionally refuse to build or upload binaries from this public repo.
+    # Set repository visibility to PRIVATE before adding any actual source.
+    if: ${{ github.event.repository.private == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private project
+        uses: actions/checkout@v4
+
+      - name: Verify real Fabric project exists
+        shell: bash
+        run: |
+          test -f build.gradle || { echo "Missing build.gradle; real mod source has not been uploaded."; exit 1; }
+          test -f settings.gradle || { echo "Missing settings.gradle"; exit 1; }
+          test -f gradlew || { echo "Missing Gradle wrapper launcher"; exit 1; }
+          test -f gradle/wrapper/gradle-wrapper.jar || { echo "Missing Gradle wrapper JAR"; exit 1; }
+          test -f src/main/resources/fabric.mod.json || { echo "Missing fabric.mod.json"; exit 1; }
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ inputs.java_version }}
+
+      - name: Set up Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Compile actual Minecraft Fabric mod
+        shell: bash
+        run: |
+          chmod +x ./gradlew
+          ./gradlew clean build --no-daemon --stacktrace
+
+      - name: Collect verified Fabric JARs
+        shell: bash
+        run: |
+          mkdir -p dist
+          for file in build/libs/*.jar; do
+            [ -f "$file" ] || continue
+            case "$file" in
+              *-sources.jar|*-dev.jar|*-javadoc.jar) continue ;;
+            esac
+            if unzip -Z1 "$file" | grep -qx 'fabric.mod.json'; then
+              cp "$file" dist/
+            fi
+          done
+          compgen -G "dist/*.jar" >/dev/null || { echo "No real Fabric mod JAR found."; exit 1; }
+          (cd dist && sha256sum ./*.jar > SHA256SUMS.txt)
+
+      - name: Downloadable beta JAR artifact (not a public release)
+        uses: actions/upload-artifact@v4
+        with:
+          name: InventoryLock-Beta-jar
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14

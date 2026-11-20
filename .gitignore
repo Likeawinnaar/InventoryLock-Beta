@@ -1,0 +1,41 @@
+# Minecraft/Fabric/Gradle build output
+.gradle/
+build/
+run/
+out/
+logs/
+crash-reports/
+.gradle-bootstrap/
+bin/
+*.class
+*.log
+
+# Editor and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Sensitive or machine-local data
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*.keystore
+*.jks
+secrets/
+private/
+*.token
+
+# Unreleased build artifacts (never publish via git)
+*.jar
+*.zip
+*.7z
+
+# Personal data and debugging
+*.hprof
+hs_err_pid*

@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a reproducible issue in InventoryLock Beta.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        InventoryLock is in beta. Please remove private information, tokens and personal paths from logs.
+        For sensitive security issues, consult SECURITY.md instead of posting publicly.
+  - type: input
+    id: minecraft
+    attributes:
+      label: Minecraft version
+      placeholder: e.g. the exact version shown in your launcher
+    validations:
+      required: true
+  - type: input
+    id: fabric
+    attributes:
+      label: Fabric Loader version
+      placeholder: exact version
+    validations:
+      required: true
+  - type: input
+    id: inventorylock
+    attributes:
+      label: InventoryLock version
+      placeholder: beta build / version
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Describe what you clicked, which slot was locked and what happened.
+      placeholder: |
+        1. Open ...
+        2. Lock ...
+        3. Try ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other installed mods and relevant logs
+      description: Only share sanitized logs; never post account credentials.

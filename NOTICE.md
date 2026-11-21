@@ -16,4 +16,11 @@ without appropriate permission.
 - **Releases:** Publish only artifacts whose distribution rights have been
   checked. Do not publish secrets, credentials or personal information.
 
+## Credits
+
+The project owner supplied the feature brief, logo, and padlock artwork.
+Development, documentation, and testing used AI assistance. The build layout
+follows Fabric's example project and uses the official Gradle wrapper. The
+gallery contains screenshots captured from the running mod.
+
 Minecraft and Mojang are not associated with InventoryLock.

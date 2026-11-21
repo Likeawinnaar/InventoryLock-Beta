@@ -1,14 +1,12 @@
 # InventoryLock beta — release checklist
 
-> This repository **does not yet contain complete Fabric source code or a
-> verified, compiled InventoryLock JAR**. No release build is claimed.
+The public beta JAR and its checksum are distributed through [GitHub Releases](https://github.com/Likeawinnaar/InventoryLock-Beta/releases).
 
 ## Before creating a release
 
 1. Keep the **original source** and source artwork in a private repository,
    with access limited to trusted maintainers.
-2. Confirm the build configuration and target versions: Minecraft, Java,
-   Fabric Loader, Fabric API (if used), Mod Menu and other dependencies.
+2. Confirm the Minecraft, Java, Fabric Loader and optional Mod Menu dependency versions.
 3. Use a reproducible CI workflow in the private source repository. Grant
    the workflow minimal read permissions; do not expose tokens in logs.
 4. Compile the actual mod; a ZIP renamed to `.jar` is not a build.

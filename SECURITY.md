@@ -19,6 +19,4 @@ before disclosing detailed vulnerability information publicly.
 
 ## Supported versions
 
-No verified release/version compatibility matrix has been supplied to this
-repository yet. Until a release has been validated, no version is promised
-security-maintenance coverage.
+Report issues affecting InventoryLock 1.0.5 for Minecraft Java Edition 1.21.1. Include your Fabric Loader version and other installed mods.

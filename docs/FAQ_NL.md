@@ -7,19 +7,15 @@ zodat items minder snel per ongeluk worden verplaatst, verwisseld of gedropt.
 
 ## Hoe vergrendel ik een slot?
 
-De eerder beschreven bediening is **Left Alt + linkermuisknop** op een slot.
-Controleer dit altijd in jouw geïnstalleerde bètaversie.
+Gebruik **Left Alt + linkermuisknop** op een vakje. Via **Mod Menu → InventoryLock → Configure** kun je de toets aanpassen.
 
 ## Werkt het op servers?
 
-De mod is client-side bedoeld, maar kan wijzigingen die de server uitvoert
-niet altijd tegenhouden. Het is geen bescherming tegen het stelen van items
-op een server.
+InventoryLock draait op je client. **Per-Server Locks** staat standaard aan en bewaart voor elke server een eigen set sloten. Wijzigingen vanuit de server, bijvoorbeeld na je dood of door een commando, worden gewoon toegepast.
 
-## Waar zijn de Java-broncode en de .jar?
+## Waar kan ik de mod downloaden?
 
-Deze openbare repository bevat voorlopig projectinformatie. Er is hier nog
-geen volledige Java-broncode of geverifieerde werkende JAR geplaatst.
+Open [Releases](https://github.com/Likeawinnaar/InventoryLock-Beta/releases) en download de JAR voor versie 1.0.5. De [installatie-instructies](../README.md#install) noemen de vereiste Minecraft-, Java- en Fabric-versies.
 
 ## Kunnen anderen onze mod kopiëren?
 

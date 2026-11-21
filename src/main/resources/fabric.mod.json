@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "inventorylock",
+  "version": "${version}",
+  "name": "InventoryLock",
+  "description": "Protect your inventory slots from accidental drops, swaps, and item movement.",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.inventorylock.InventoryLockClient"
+    ],
+    "modmenu": [
+      "com.inventorylock.integration.InventoryLockModMenu"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "1.21.1",
+    "java": ">=21"
+  },
+  "icon": "assets/inventorylock/icon.png",
+  "mixins": [
+    "inventorylock.mixins.json"
+  ],
+  "suggests": {
+    "modmenu": ">=11.0.0"
+  }
+}

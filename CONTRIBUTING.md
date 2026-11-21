@@ -2,9 +2,7 @@
 
 Thanks for taking an interest in InventoryLock.
 
-InventoryLock is **proprietary and in beta**. This public repository is for
-project information and issue reports, not an invitation to redistribute
-the code or to create unofficial releases.
+InventoryLock is proprietary and in beta. The public repository contains the source and tracks issues. See [LICENSE](LICENSE) for the terms.
 
 ## Bug reports
 

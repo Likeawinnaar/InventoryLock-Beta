@@ -2,6 +2,7 @@
 
 | Component | Status |
 | --- | --- |
+| Source | Public Java and Fabric project, including the Gradle Wrapper and shipped textures |
 | Current build | InventoryLock 1.0.5 for Minecraft Java Edition 1.21.1, Fabric Loader 0.16.14+, and Java 21 |
 | Verification | Gradle build and automated configuration checks passed on Linux. The packaged JAR opened in Minecraft with Mod Menu. |
 | Local gameplay | Inventory locks, hotbar overlay, and switching between two local worlds exercised in Minecraft. |

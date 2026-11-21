@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.inventorylock.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "HandledScreenMixin",
+    "InGameHudMixin",
+    "InteractionManagerMixin",
+    "ClientPlayerMixin",
+    "MinecraftClientMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "RealmsServerMixin",
+    "CreativeScreenMixin",
+    "CreativeSlotAccessor"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}

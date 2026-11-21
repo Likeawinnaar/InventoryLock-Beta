@@ -39,3 +39,7 @@ private/
 # Personal data and debugging
 *.hprof
 hs_err_pid*
+
+# Checked-in build tooling and the approved beta download
+!/gradle/wrapper/gradle-wrapper.jar
+!/downloads/inventorylock-1.0.5.jar

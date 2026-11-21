@@ -21,6 +21,7 @@ without appropriate permission.
 The project owner supplied the feature brief, logo, and padlock artwork.
 Development, documentation, and testing used AI assistance. The build layout
 follows Fabric's example project and uses the official Gradle wrapper. The
+wrapper is covered by the [Apache 2.0 license](docs/GRADLE-LICENSE.txt). The
 gallery contains screenshots captured from the running mod.
 
 Minecraft and Mojang are not associated with InventoryLock.

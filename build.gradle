@@ -1,0 +1,61 @@
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+}
+
+version = mod_version
+group = 'com.inventorylock'
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') {
+        expand version: project.version
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+}
+
+repositories {
+    maven {
+        url = 'https://maven.terraformersmc.com/releases/'
+        content { includeGroup 'com.terraformersmc' }
+    }
+    maven {
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
+}
+
+dependencies {
+    modCompileOnly "com.terraformersmc:modmenu:${modmenu_version}"
+
+    if (providers.gradleProperty('withModMenu').isPresent()) {
+        modLocalRuntime "com.terraformersmc:modmenu:${modmenu_version}"
+        modLocalRuntime "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+        modLocalRuntime "maven.modrinth:placeholder-api:${placeholder_api_version}"
+    }
+}
+
+def inventoryLockChecks = tasks.register('inventoryLockChecks', JavaExec) {
+    group = 'verification'
+    description = 'Checks slot ranges, profile persistence, and configuration recovery.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.inventorylock.InventoryLockChecks'
+    dependsOn testClasses
+}
+tasks.named('check') {
+    dependsOn inventoryLockChecks
+}

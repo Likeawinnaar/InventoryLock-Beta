@@ -1,27 +1,25 @@
-# InventoryLock bouwen zonder Java op je eigen pc
+# InventoryLock bouwen
 
-Dit is een **voorbereide** GitHub Actions-workflow. Er is nog geen
-volledig bronproject in deze repository, dus er kan nog geen echte
-InventoryLock-JAR worden gemaakt.
+Installeer een **JDK 21** en controleer met `java -version` en
+`javac -version` welke versie actief is. Clone deze repository en voer de
+Gradle Wrapper uit vanuit de projectmap.
 
-## Stappen
+Windows (PowerShell):
 
-1. Maak de repository **privé** via
-   [Settings](https://github.com/Likeawinnaar/InventoryLock-Beta/settings)
-   → General → Danger Zone → Change repository visibility.
-2. Voeg daarna pas de echte Fabric-projectbestanden toe, waaronder
-   `build.gradle`, `settings.gradle`, `gradlew`,
-   `gradle/wrapper/gradle-wrapper.jar`, de Java-bestanden en
-   `src/main/resources/fabric.mod.json`.
-3. Open het tabblad **Actions** en selecteer
-   **Build InventoryLock (private repository only)**.
-4. Kies Java 17 of Java 21 zoals passend bij je Minecraft/Fabric-project.
-5. Klik op **Run workflow**.
-6. Alleen bij een geslaagde build verschijnt onder **Artifacts**
-   `InventoryLock-Beta-jar`, inclusief SHA-256-controlebestand.
+```powershell
+.\gradlew.bat build
+```
 
-Zolang de repository openbaar is, wordt deze bouwtaak bewust
-overgeslagen. Upload geen broncode naar een openbare repository.
+Linux en macOS:
 
-**Belangrijk:** een geslaagde compilatie bewijst nog niet dat de mod
-in Minecraft correct werkt. Test de JAR ook in-game.
+```sh
+./gradlew build
+```
+
+De build voert de automatische controles uit. De JAR voor Minecraft staat in
+`build/libs/inventorylock-1.0.5.jar`.
+
+Start de ontwikkelclient met `./gradlew runClient` of
+`.\gradlew.bat runClient`. Voeg `-PwithModMenu` toe om Mod Menu, Fabric API en
+Placeholder API in die ontwikkelclient te laden. Zie [TESTING.md](TESTING.md)
+voor de uitgevoerde tests en de punten die nog openstaan.

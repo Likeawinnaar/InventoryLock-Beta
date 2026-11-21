@@ -7,7 +7,7 @@ InventoryLock is a client-side Fabric mod for Minecraft Java Edition 1.21.1. Loc
 ## Install
 
 1. Set up Minecraft Java Edition **1.21.1**, **Java 21**, and **Fabric Loader 0.16.14** or later.
-2. Download [InventoryLock 1.0.5](https://github.com/Likeawinnaar/InventoryLock-Beta/releases/tag/v1.0.5) and put `inventorylock-1.0.5.jar` in your profile's `mods` folder.
+2. Download [InventoryLock 1.0.5](https://github.com/Likeawinnaar/InventoryLock-Beta/raw/refs/tags/v1.0.5/downloads/inventorylock-1.0.5.jar) and put `inventorylock-1.0.5.jar` in your profile's `mods` folder.
 3. For the settings screen, add [Mod Menu 11.0.5](https://modrinth.com/mod/modmenu/version/11.0.5) with Fabric API for 1.21.1 and Placeholder API. Slot locking works with Fabric Loader and InventoryLock alone.
 
 ## Use
@@ -21,10 +21,21 @@ InventoryLock is a client-side Fabric mod for Minecraft Java Edition 1.21.1. Loc
 
 Locks apply to supported client actions. Server updates, death and commands can still change your inventory. Quick moves can be canceled if they could reach a protected slot. Creative has additional restrictions around bulk actions, and custom inventory mods can conflict.
 
+## Build from source
+
+Clone the repository and run `./gradlew build` on Linux or macOS, or
+`.\gradlew.bat build` on Windows, with JDK 21. The Gradle build runs the
+automated checks and writes the mod to `build/libs/inventorylock-1.0.5.jar`.
+
+To launch a development client, run `./gradlew runClient`. Add
+`-PwithModMenu` to include Mod Menu and its dependencies.
+
 ## More
 
 - [Screenshots](docs/GALLERY.md)
 - [Changelog](CHANGELOG.md)
+- [Test results](docs/TESTING.md)
+- [Build instructions (Nederlands)](docs/BUILD_NL.md)
 - [Veelgestelde vragen (Nederlands)](docs/FAQ_NL.md)
 - [Report a bug or request a feature](https://github.com/Likeawinnaar/InventoryLock-Beta/issues)
 
